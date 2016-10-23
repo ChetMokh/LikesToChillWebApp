@@ -13,7 +13,7 @@ import CST438.softwareEngineering.LikesToChillWebApp.model.User;
 import CST438.softwareEngineering.LikesToChillWebApp.service.UserDAO;
 
 
-@Path("/users")
+@Path("users")
 public class UserResource {
 	
 	UserDAO users = new UserDAO();
@@ -21,7 +21,7 @@ public class UserResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-    public List<User> getAllUsers() throws ClassNotFoundException, SQLException {
+    public List<User> getAllUsers() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
         users.getConnection();
 		return users.findAll();
     }

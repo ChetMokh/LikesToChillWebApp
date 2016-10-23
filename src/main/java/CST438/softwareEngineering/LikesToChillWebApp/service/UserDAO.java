@@ -10,11 +10,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.arash.cliqbac.webapplication.model.*;
-
 import CST438.softwareEngineering.LikesToChillWebApp.model.User;
 
-@Path("/users")
+
 public class UserDAO {
 	
 	private Connection connection;
@@ -22,33 +20,35 @@ public class UserDAO {
 	public UserDAO () {
 		
 	}
-	
-	public void getConnection() throws ClassNotFoundException, SQLException {
 		
-		Class.forName("org.postgresql.Driver");
-		DriverManager.registerDriver(new org.postgresql.Driver());
+	public void getConnection() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+		
+		Class.forName("com.mysql.jdbc.Driver").newInstance();
+	
 		connection = DriverManager.getConnection(
-				"jdbc:postgresql://127.0.0.1:5432/wiseR3B3L", "postgres",
-				"zigil1");
+				"jdbc:mysql://likestochill.c2xl5ywnufyt.us-west-1.rds.amazonaws.com:3306/LikesToChill", "ChillAdmin",
+				"Chill438");
 		
 	}
 	
-	@SuppressWarnings("null")
 	public List<User> findAll() throws SQLException, ClassNotFoundException {
 
 		List<User> myUser = new ArrayList<User>();
-		String selectTableSQL = "SELECT * from users";
+		String selectTableSQL = "SELECT * from Users";
 		java.sql.Statement statement = connection.createStatement();
 		ResultSet rs = statement.executeQuery(selectTableSQL);
 
 		while (rs.next()) {
-			int userId = rs.getInt("userid");
-			String userName = rs.getString("username");
-			String phoneNumber = rs.getString("phonenumber");
-			String userPic = rs.getString("userpicture");
-			String realName = rs.getString("realname");
-			String modTime = rs.getString("modtime");
-			myUser.add(new User(userId, userName, phoneNumber, realName, modTime, modTime, modTime));
+			int userId = rs.getInt("UserId");
+			String firstName = rs.getString("FirstName");
+			String lastName = rs.getString("LastName");
+			String userEmail = rs.getString("UserEmail");
+			String userGender = rs.getString("UserGender");
+			String userZipcode = rs.getString("UserZipcode");
+			String userAbout = rs.getString("UserAbout");
+			String userDOB = rs.getString("UserDOB");
+			String userSignupDate = rs.getString("SignupDate");
+			myUser.add(new User(userId, firstName, lastName, userZipcode, userEmail, userGender, userDOB, userAbout, userSignupDate));
 		}
 		return myUser;
 	}
