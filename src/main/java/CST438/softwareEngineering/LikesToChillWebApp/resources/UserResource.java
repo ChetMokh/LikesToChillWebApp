@@ -26,13 +26,13 @@ public class UserResource {
 		return users.findAll();
     }
 	
-//	@GET
-//	@Path("/{userId}")
-//	@Produces(MediaType.APPLICATION_JSON)
-//    public List<User> getUserById(@PathParam("userId") int userId ) throws ClassNotFoundException, SQLException {
-//        users.getConnection();
-//		return users.findById(userId);
-//    }
+	@GET
+	@Path("/{userId}")
+	@Produces(MediaType.APPLICATION_JSON)
+    public List<User> getUserById(@PathParam("userId") int userId ) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+        users.getConnection();
+		return users.findById(userId);
+    }
 	
 
 }

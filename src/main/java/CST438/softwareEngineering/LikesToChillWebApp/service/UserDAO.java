@@ -53,6 +53,28 @@ public class UserDAO {
 		return myUser;
 	}
 	
+	public List<User> findById(int userId) throws SQLException {
+    	
+		List<User> myUser = new ArrayList<User>();
+		String selectTableSQL = "SELECT * from Users WHERE UserId = "+ userId +"";
+		java.sql.Statement statement = connection.createStatement();
+		ResultSet rs = statement.executeQuery(selectTableSQL);
+	
+		while (rs.next()) {
+			
+			String firstName = rs.getString("FirstName");
+			String lastName = rs.getString("LastName");
+			String userEmail = rs.getString("UserEmail");
+			String userGender = rs.getString("UserGender");
+			String userZipcode = rs.getString("UserZipcode");
+			String userAbout = rs.getString("UserAbout");
+			String userDOB = rs.getString("UserDOB");
+			String userSignupDate = rs.getString("SignupDate");
+			myUser.add(new User(userId, firstName, lastName, userZipcode, userEmail, userGender, userDOB, userAbout, userSignupDate));
+		}
+		return myUser;
+    	
+	}
 	
 //    public List<User> findById(int userId) throws SQLException {
 //    	
