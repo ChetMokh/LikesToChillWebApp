@@ -116,28 +116,33 @@ public class UserDAO {
 //		
 //	}
 //    
-//    public boolean insertUser(User user) throws SQLException {
-//		
-//		String selectTableSQL = "INSERT INTO users (username, phonenumber, realname) "
-//				+ "VALUES ('"+ user.getUserName() +"', '"+ user.getPhoneNumber() +"',"
-//						+ " '"+ user.getRealName() +"')";
-//		java.sql.Statement statement = connection.createStatement();
-//		statement.executeUpdate(selectTableSQL);
-//		return true;
-//
-//	}
-//    
-//    public boolean updateUser(User user) throws SQLException {
-//		
-//    	String selectTableSQL = "update users set (username, phonenumber, realname) "
-//				+ "= ('"+ user.getUserName() +"', '"+ user.getPhoneNumber() +"',"
-//						+ " '"+ user.getRealName() +"') "
-//								+ "where userid = '"+ user.getUserId() +"'";
-//		java.sql.Statement statement = connection.createStatement();
-//		statement.executeUpdate(selectTableSQL);
-//		return true;
-//		
-//	}
+    public boolean insertUser(User user) throws SQLException {
+    	
+		String selectTableSQL = "INSERT INTO Users (UserId, FirstName, LastName, UserEmail,"
+				+ "					UserGender, UserZipcode, UserAbout, UserDOB, SignupDate) "
+				+ "VALUES (\"" + user.getUserId() + "\", \"" + user.getfName() + "\", \"" 
+				+ user.getlName() + "\", \"" + user.getUserEmail() + "\", \""
+				+ user.getUserGender() + "\", \"" + user.getUserLocation() + "\", \""
+				+ user.getUserAbout() + "\", '" + user.getUserDOB() + "', CURRENT_DATE";
+		java.sql.Statement statement = connection.createStatement();
+		statement.executeUpdate(selectTableSQL);
+		return true;
+
+	}
+ 
+    public boolean updateUser(User user) throws SQLException {
+		
+    	String selectTableSQL = "UPDATE Users SET (FirstName, LastName, UserEmail,"
+				+ "					UserGender, UserZipcode, UserAbout, UserDOB, SignupDate) "
+				+ "VALUES (\"" + user.getfName() + "\", \"" 
+				+ user.getlName() + "\", \"" + user.getUserEmail() + "\", \""
+				+ user.getUserGender() + "\", \"" + user.getUserLocation() + "\", \""
+				+ user.getUserAbout() + "\"" + " WHERE UserId = \"" + user.getUserId() + "\"";
+		java.sql.Statement statement = connection.createStatement();
+		statement.executeUpdate(selectTableSQL);
+		return true;
+		
+	}
 //    
 //    
 //    boolean deleteUser(User use) {
