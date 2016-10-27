@@ -117,13 +117,15 @@ public class UserDAO {
 //	}
 //    
     public boolean insertUser(User user) throws SQLException {
+ 
+
     	
-		String selectTableSQL = "INSERT INTO Users (UserId, FirstName, LastName, UserEmail,"
-				+ "					UserGender, UserZipcode, UserAbout, UserDOB, SignupDate) "
-				+ "VALUES (\"" + user.getUserId() + "\", \"" + user.getfName() + "\", \"" 
-				+ user.getlName() + "\", \"" + user.getUserEmail() + "\", \""
-				+ user.getUserGender() + "\", \"" + user.getUserLocation() + "\", \""
-				+ user.getUserAbout() + "\", '" + user.getUserDOB() + "', CURRENT_DATE";
+		String selectTableSQL = "INSERT INTO Users "
+				+ "VALUES (" + user.getUserId() + ", '" + user.getfName() + "', '" 
+				+ user.getlName() + "', '" + user.getUserEmail() 
+				+ "', '"+ user.getUserGender() + "', " + user.getUserLocation() 
+				+ ", '" + user.getUserAbout() + "', '"+ user.getUserDOB() +"',CURRENT_DATE )";
+    	
 		java.sql.Statement statement = connection.createStatement();
 		statement.executeUpdate(selectTableSQL);
 		return true;
