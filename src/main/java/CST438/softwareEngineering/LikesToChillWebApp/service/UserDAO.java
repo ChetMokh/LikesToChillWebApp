@@ -132,16 +132,16 @@ public class UserDAO {
 
 	}
  
-    public boolean updateUser(User user) throws SQLException {
+    public boolean updateUser(int userId, User user) throws SQLException {
 
     	
-		String selectTableSQL = "UPDATE Users SET (FirstName, LastName, UserEmail,"
-				+ "UserGender, UserZipcode, UserAbout, UserDOB)"
-				+ "VALUES ('" + user.getfName() + "', '" 
-				+ user.getlName() + "', '" + user.getUserEmail() 
-				+ "', '"+ user.getUserGender() + "', " + user.getUserLocation() 
-				+ ", '" + user.getUserAbout() + "', '"+ user.getUserDOB() +"')";
-		
+		String selectTableSQL = "UPDATE Users SET FirstName ='" + user.getfName() 
+				+ "', LastName = '" + user.getlName() + "', UserEmail = '" + user.getUserEmail() 
+				+ "', UserGender = '"+ user.getUserGender() + "', "
+				+ "UserZipcode = "+ user.getUserLocation() + ", UserAbout = '"+ user.getUserAbout() + "', "
+				+ "UserDOB = '"+ user.getUserDOB() +"' " 
+				+ "WHERE UserId = "+ userId +"";
+	
 		java.sql.Statement statement = connection.createStatement();
 		statement.executeUpdate(selectTableSQL);
 		return true;

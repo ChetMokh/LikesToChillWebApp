@@ -68,4 +68,16 @@ public class UserResource {
 		
 	}
 	
+	@POST
+	@Path("/updateUser/{userId}")
+	@Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+	public User updateUser(@PathParam("userId") int userId, User updateUser) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+		
+		users.getConnection();
+		users.updateUser(userId, updateUser);
+		return updateUser;
+		
+	}
+	
 }

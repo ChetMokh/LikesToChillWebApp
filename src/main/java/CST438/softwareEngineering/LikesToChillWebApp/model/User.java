@@ -24,7 +24,7 @@ public class User {
 	}
 	
 	public User(String fName, String lName, String userLocation, String userEmail, String userGender,
-			String userDOB, String userAbout, String userSignupDate) {
+			String userDOB, String userAbout) {
 		super();
 		this.fName = fName;
 		this.lName = lName;
@@ -33,7 +33,6 @@ public class User {
 		this.userGender = userGender;
 		this.userDOB = userDOB;
 		this.userAbout = userAbout;
-		this.userSignupDate = userSignupDate;
 	}
 	
 	public User(int userId, String fName, String lName, String userLocation, String userEmail, String userGender,
