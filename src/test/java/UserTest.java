@@ -1,4 +1,4 @@
-package CST438.softwareEngineering.LikesToChillWebApp.model;
+
 
 import static org.junit.Assert.*;
 
