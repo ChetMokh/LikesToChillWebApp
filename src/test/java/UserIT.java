@@ -35,5 +35,6 @@ public class UserIT {
 		String firstName = rs.getString("FirstName");
 	
 		assertEquals(firstName, "Sean");
+		//hello test
 	}
 }
