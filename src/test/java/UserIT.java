@@ -25,7 +25,8 @@ public class UserIT {
 	}
 	
 	@Test
-	public void readDataFromDB() throws SQLException, ClassNotFoundException{
+	public void readDataFromDB() throws SQLException{
+		System.out.println("readDataFromDB");
 
 		String selectTableSQL = "SELECT * FROM Users WHERE UserId = 1";
 		java.sql.Statement statement = connection.createStatement();
@@ -33,8 +34,28 @@ public class UserIT {
 
 		rs.next();
 		String firstName = rs.getString("FirstName");
-	
+		
 		assertEquals(firstName, "Sean");
-		//hello test
+		
+	}
+	
+	@Test
+	public void addUserToDB() throws SQLException {
+		System.out.println("addUserToDB");
+		
+		String selectTableSQL = "INSERT INTO Users "
+				+ "VALUES (0, 'John', 'Smith', 'example@email.com', 'M', 12345, 'about', CURRENT_DATE, CURRENT_DATE )";
+    	
+		java.sql.Statement statement = connection.createStatement();
+		statement.executeUpdate(selectTableSQL);
+		
+		selectTableSQL = "SELECT * FROM Users WHERE UserId = 0";
+		statement = connection.createStatement();
+		ResultSet rs = statement.executeQuery(selectTableSQL);
+		
+		rs.next();
+		String firstName = rs.getString("FirstName");
+		assertEquals(firstName, "John");
+
 	}
 }
