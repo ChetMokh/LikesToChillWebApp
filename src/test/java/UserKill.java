@@ -12,6 +12,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import CST438.softwareEngineering.LikesToChillWebApp.model.User;
+
+//Brian Test
 public class UserKill {
 	private Connection connection;
 	
