@@ -148,12 +148,13 @@ public class UserDAO {
 				
 				
 	}
-//    
-//    
-//    boolean deleteUser(User use) {
-//		
-//    	return false;
-//    	
-//	}
+    
+    public boolean killUser(int userId, User user) throws SQLException {
+    	String selectTableSQL = "DELETE FROM Users WHERE UserId = "+ userId +"";
+    	
+    	java.sql.Statement statement = connection.createStatement();
+		statement.executeUpdate(selectTableSQL);
+		return true;
+    }
     
 }
