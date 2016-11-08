@@ -48,10 +48,11 @@ SQLException, InstantiationException, IllegalAccessException{
         System.out.println("addUserToDB");
 
         String selectTableSQL = "INSERT INTO Users "
-                + "VALUES (0, 'John', 'Smith', 'example@email.com','M', 12345, 'about', CURRENT_DATE, CURRENT_DATE )";
-
-        java.sql.Statement statement = connection.createStatement();
-        statement.executeUpdate(selectTableSQL);
+				+ "VALUES (0, 'John', 'Smith', 'example@email.com', 'M', 12345, 'about', CURRENT_DATE, CURRENT_DATE )";
+    	
+		java.sql.Statement statement = connection.createStatement();
+		statement.executeUpdate(selectTableSQL);
+		
 
         selectTableSQL = "SELECT * FROM Users WHERE UserId = 0";
         statement = connection.createStatement();
@@ -60,6 +61,15 @@ SQLException, InstantiationException, IllegalAccessException{
         rs.next();
         String firstName = rs.getString("FirstName");
         assertEquals(firstName, "John");
+        
+        // Removing John Smith
+        selectTableSQL = "DELETE FROM Users WHERE UserId = 0";
+    	
+		statement = connection.createStatement();
+		statement.executeUpdate(selectTableSQL);
+        
+        
+        
 
     }
 }
