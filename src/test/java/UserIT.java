@@ -14,6 +14,7 @@ public class UserIT{
 	public void apiTesting1() throws Exception {
 		
 		try {
+
 				URL url = new URL("http://likestochill.heidyzqyc2.us-west-2.elasticbeanstalk.com/webapi/users");
 				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 				conn.setRequestMethod("GET");
@@ -25,22 +26,23 @@ public class UserIT{
 	
 				Scanner scan = new Scanner(url.openStream());
 				String entireResponse = new String();
-				while (scan.hasNext())
+				while (scan.hasNext()) {
 					entireResponse += scan.nextLine();
-	
-				System.out.println("Response : "+entireResponse);
+				}
+				System.out.println("Response : "+ entireResponse);
 	
 				scan.close();
 	
-				JSONObject obj = new JSONObject(entireResponse );
-				String responseCode = obj.getString("status");
+				JSONObject obj = new JSONObject(entireResponse);
+				JSONArray obj1 = new JSONArray(entireResponse);
+				String responseCode = obj1.getString(0);
 				System.out.println("status : " + responseCode);
 	
 				JSONArray arr = obj.getJSONArray("results");
 				
-				String[] expectedResult = {"Sean","Arash","Brian","Peter","Ben"};
+				String[] expectedResult = {"John","Sean","Arash","Brian","Peter","Ben"};
 				
-				for (int i = 0; i < 4; i++) {
+				for (int i = 0; i < 5; i++) {
 					String firstName = arr.getJSONObject(i).getString("fName");
 					System.out.println("fName : " + firstName);
 					String secondName = arr.getJSONObject(i).getString("lName");
@@ -108,7 +110,7 @@ public class UserIT{
 				System.out.println("lName : " + secondName);
 
 				//validating Address as per the requirement
-				if(firstName.equalsIgnoreCase("Sean"))
+				if(firstName.equalsIgnoreCase("John"))
 				{
 					System.out.println("Address is as Expected");
 				}
