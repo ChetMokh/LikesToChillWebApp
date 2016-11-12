@@ -6,15 +6,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Movie {
 
 	private String movieId;
-	
-	public Movie() {
-		
+	private int userId;
+
+	public Movie() {	
 	}
 	
-	public Movie(String movieId) {
+	public Movie(String movieId, int userId) {
 		super();
 		this.movieId = movieId;
-		
+		this.userId = userId;
 	}
 
 	public String getMovieId() {
@@ -25,8 +25,18 @@ public class Movie {
 		this.movieId = movieId;
 	}
 	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
 	@Override
 	public String toString() {
-		return "Movies [movieId=" + movieId + "]";
+		return "Movie [movieId=" + movieId + ", userId=" + userId + "]";
 	}
+	
+	
 }
