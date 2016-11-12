@@ -9,13 +9,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import CST438.softwareEngineering.LikesToChillWebApp.model.Movie;
-import CST438.softwareEngineering.LikesToChillWebApp.service.MovieDAO;
+import CST438.softwareEngineering.LikesToChillWebApp.model.Conversation;
+import CST438.softwareEngineering.LikesToChillWebApp.service.ConversationDAO;
 
 @Path("conversations")
 public class ConversationResource {
 	
-	MovieDAO userMovies = new MovieDAO();
+	ConversationDAO usersConvo = new ConversationDAO();
 	
 	
 //	@GET
@@ -28,9 +28,9 @@ public class ConversationResource {
 	@GET
 	@Path("/{senderId,receiverId}")
 	@Produces(MediaType.APPLICATION_JSON)
-    public List<Movie> getUserById(@PathParam("userId") int userId ) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-        userMovies.getConnection();
-		return userMovies.findMoviesByUserId(userId);
+    public List<Conversation> getUserById(@PathParam("senderId") int senderId, @PathParam("receiverId") int receiverId ) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+        usersConvo.getConnection();
+		return usersConvo.findChatUserId(senderId, receiverId);
     }
 
 }
