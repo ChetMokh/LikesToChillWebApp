@@ -40,9 +40,9 @@ private Connection connection;
 			int convoId = rs.getShort("ConversationId");
 			String message = rs.getString("Message");
 			String convoTime = rs.getString("TimeStamp");
-//			String senderUId = rs.getString("SenderId");
-//			String receiverUId = rs.getString("ReceiverId");
-			userConvo.add(new Conversation( convoId, senderId, receiverId, message, convoTime));
+			int senderUId = rs.getShort("SenderId");
+			int receiverUId = rs.getShort("ReceiverId");
+			userConvo.add(new Conversation(convoId, senderUId, receiverUId, message, convoTime));
 		}
 		return userConvo;
     	
