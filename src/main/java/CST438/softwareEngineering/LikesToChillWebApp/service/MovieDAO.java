@@ -45,41 +45,22 @@ private Connection connection;
 		return userMovies;
     	
 	}
-    public boolean insertUser(User user) throws SQLException {
- 
-
-    	
-		String selectTableSQL = "INSERT INTO Users "
-				+ "VALUES (" + user.getUserId() + ", '" + user.getfName() + "', '" 
-				+ user.getlName() + "', '" + user.getUserEmail() 
-				+ "', '"+ user.getUserGender() + "', " + user.getUserLocation() 
-				+ ", '" + user.getUserAbout() + "', '"+ user.getUserDOB() +"',CURRENT_DATE )";
-    	
-		java.sql.Statement statement = connection.createStatement();
-		statement.executeUpdate(selectTableSQL);
-		return true;
-
-	}
- 
-    public boolean updateUser(int userId, User user) throws SQLException {
-
-    	
-		String selectTableSQL = "UPDATE Users SET FirstName ='" + user.getfName() 
-				+ "', LastName = '" + user.getlName() + "', UserEmail = '" + user.getUserEmail() 
-				+ "', UserGender = '"+ user.getUserGender() + "', "
-				+ "UserZipcode = "+ user.getUserLocation() + ", UserAbout = '"+ user.getUserAbout() + "', "
-				+ "UserDOB = '"+ user.getUserDOB() +"' " 
-				+ "WHERE UserId = "+ userId +"";
 	
+    public boolean addToLikeBucket(int userId, String movieId) throws SQLException {
+    	 
+
+		String selectTableSQL = "INSERT INTO LikeBucket "
+				+ "VALUES (" + userId + ", '" + movieId + "')";
+    	
 		java.sql.Statement statement = connection.createStatement();
 		statement.executeUpdate(selectTableSQL);
 		return true;
-				
-				
+
 	}
+
     
-    public boolean killUser(int userId, User user) throws SQLException {
-    	String selectTableSQL = "DELETE FROM Users WHERE UserId = "+ userId +"";
+    public boolean deleteMovieFromLikeBucket(int userId, User user) throws SQLException {
+    	String selectTableSQL = "DELETE FROM LikeBucket WHERE UserId = "+ userId +"";
     	
     	java.sql.Statement statement = connection.createStatement();
 		statement.executeUpdate(selectTableSQL);
