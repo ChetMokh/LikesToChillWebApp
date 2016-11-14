@@ -7,8 +7,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Scanner;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
@@ -100,9 +100,8 @@ public class UserIT{
                 
                 
                 // Loop through each item
-                for (int i = 0; i < array.length(); i++) {
-                	
-                    JSONObject result = array.getJSONObject(i);
+                for (Object o : array) {
+                    JSONObject result = (JSONObject) o;
 
                     String fName = (String) result.get("fName");
                     System.out.println("f NAME : " + fName);
