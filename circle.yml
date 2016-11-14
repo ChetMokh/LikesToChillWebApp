@@ -1,6 +1,6 @@
 dependencies:
   pre:
-    
+    - sudo apt-get install python-dev
     - sudo pip install awsebcli
 test:
   override:
