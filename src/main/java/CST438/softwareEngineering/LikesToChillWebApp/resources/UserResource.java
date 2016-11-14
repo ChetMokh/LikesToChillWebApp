@@ -45,6 +45,15 @@ public class UserResource {
 	public String getPost() {
 		return "POST works";
 	}
+	
+
+//	@POST
+//	@Path("/post")
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	public Response postStudentRecord(Student student){
+//		String result = "Record entered: "+ student;	
+//		return Response.status(201).entity(result).build();
+//  }
 
 	
 	@POST
