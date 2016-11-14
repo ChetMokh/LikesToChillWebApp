@@ -26,7 +26,7 @@ public class UserDAO {
 		Class.forName("com.mysql.jdbc.Driver").newInstance();
 	
 		connection = DriverManager.getConnection(
-				"jdbc:mysql://likestochill.c2xl5ywnufyt.us-west-1.rds.amazonaws.com:3306/LikesToChill", "ChillAdmin",
+				"jdbc:mysql://likestochill.c2xl5ywnufyt.us-west-1.rds.amazonaws.com:3306/LikesToChill", "ChillAdmin", 
 				"Chill438");
 		
 	}
@@ -134,7 +134,6 @@ public class UserDAO {
  
     public boolean updateUser(int userId, User user) throws SQLException {
 
-    	
 		String selectTableSQL = "UPDATE Users SET FirstName ='" + user.getfName() 
 				+ "', LastName = '" + user.getlName() + "', UserEmail = '" + user.getUserEmail() 
 				+ "', UserGender = '"+ user.getUserGender() + "', "
@@ -144,12 +143,12 @@ public class UserDAO {
 	
 		java.sql.Statement statement = connection.createStatement();
 		statement.executeUpdate(selectTableSQL);
-		return true;
-				
+		return true;				
 				
 	}
     
-    public boolean killUser(int userId, User user) throws SQLException {
+    public boolean killUser(int userId) throws SQLException {
+    	
     	String selectTableSQL = "DELETE FROM Users WHERE UserId = "+ userId +"";
     	
     	java.sql.Statement statement = connection.createStatement();

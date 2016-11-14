@@ -46,6 +46,7 @@ public class UserResource {
 		return "POST works";
 	}
 	
+
 //	@POST
 //	@Path("/post")
 //	@Consumes(MediaType.APPLICATION_JSON)
@@ -53,18 +54,17 @@ public class UserResource {
 //		String result = "Record entered: "+ student;	
 //		return Response.status(201).entity(result).build();
 //  }
-//
-//	
+
 	
 	@POST
 	@Path("/addUser")
 	@Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-	public User addNewUser(User newUser) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+	public String addNewUser(User newUser) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 		
 		users.getConnection();
 		users.insertUser(newUser);
-		return newUser;
+		return "User Added";
 		
 	}
 	

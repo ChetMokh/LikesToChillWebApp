@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import CST438.softwareEngineering.LikesToChillWebApp.model.Conversation;
+import CST438.softwareEngineering.LikesToChillWebApp.model.Movie;
 
 
 public class ConversationDAO {
@@ -31,7 +32,8 @@ private Connection connection;
 	public List<Conversation> findUserConversation(int senderId, int receiverId) throws SQLException {
     	
 		List<Conversation> userConvo = new ArrayList<Conversation>();
-		String selectTableSQL = "SELECT * from Conversations WHERE SenderId = "+ senderId +" AND ReceiverId" + receiverId;
+		String selectTableSQL = "SELECT * from Conversations WHERE (SenderId = "+ senderId +" AND ReceiverId =" + receiverId + ") OR " +
+				"(SenderId = "+ receiverId +" AND ReceiverId =" + senderId + ")";
 		java.sql.Statement statement = connection.createStatement();
 		ResultSet rs = statement.executeQuery(selectTableSQL);
 	
@@ -46,5 +48,16 @@ private Connection connection;
 		}
 		return userConvo;
     	
+	}
+
+	public boolean addConversation(Conversation userConvo) throws SQLException {
+		
+        String selectTableSQL = "INSERT INTO Conversations (ReceiverId, SenderId, Message, TimeStamp) "
+        		+ "VALUES (" + userConvo.getReceiverId() + ", " + userConvo.getSenderId() + "'" + userConvo.getMessageBody() + "' CURRENT_TIMESTAMP)";
+
+        java.sql.Statement statement = connection.createStatement();
+        statement.executeUpdate(selectTableSQL);
+        return true;
+		
 	}
 }

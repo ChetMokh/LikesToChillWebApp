@@ -18,7 +18,7 @@ import bsh.ParseException;
 public class UserIT{
 	
 	@Test
-	public void apiTestIT1() throws Exception {
+	public void apiTestGetAllUsers() throws Exception {
 		
 		JSONParser parser = new JSONParser();
 
@@ -46,7 +46,6 @@ public class UserIT{
                     String lName = (String) result.get("lName");
                     System.out.println("l NAME : " + lName);
 
-                    System.out.println("\n");
                     
                     if(fName.equalsIgnoreCase(expectedResult[i]))
     					{
@@ -56,6 +55,7 @@ public class UserIT{
     					{
     						System.out.println("Name is not as Expected");
     					}
+                    System.out.println("\n");
                     i++;
                     
                 }
@@ -70,7 +70,7 @@ public class UserIT{
 	}
 	
 	@Test
-	public void apiTestIT2() throws Exception {
+	public void apiTestgetOneUser() throws Exception {
 		
 		JSONParser parser = new JSONParser();
 
@@ -98,7 +98,6 @@ public class UserIT{
                     String lName = (String) result.get("lName");
                     System.out.println("l NAME : " + lName);
 
-                    System.out.println("\n");
                     
                     if(fName.equalsIgnoreCase(expectedResult[i]))
     					{
@@ -108,6 +107,7 @@ public class UserIT{
     					{
     						System.out.println("Name is not as Expected");
     					}
+                    System.out.println("\n");
                     i++;
                     
                 }
