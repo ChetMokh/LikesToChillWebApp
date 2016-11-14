@@ -97,11 +97,13 @@ public class UserIT{
             	
                 JSONArray array = (JSONArray) parser.parse(inputLine);
                 
-                
+                String[] expectedResult = {"Sean","Arash","Brian","Peter","Ben"};
                 
                 // Loop through each item
-                for (Object o : array) {
-                    JSONObject result = (JSONObject) o;
+                int i = 0;
+                for (Object obj : array) {
+
+                    JSONObject result = (JSONObject) obj;
 
                     String fName = (String) result.get("fName");
                     System.out.println("f NAME : " + fName);
@@ -110,6 +112,17 @@ public class UserIT{
                     System.out.println("l NAME : " + lName);
 
                     System.out.println("\n");
+                    
+                    if(fName.equalsIgnoreCase(expectedResult[i]))
+    					{
+    						System.out.println("Name is as Expected");
+    					}
+    					else
+    					{
+    						System.out.println("Name is not as Expected");
+    					}
+                    i++;
+                    
                 }
             }
             in.close();
