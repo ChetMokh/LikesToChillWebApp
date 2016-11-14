@@ -30,7 +30,7 @@ public class ConversationResource {
 	@Produces(MediaType.APPLICATION_JSON)
     public List<Conversation> getUserById(@PathParam("senderId") int senderId, @PathParam("receiverId") int receiverId ) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
         usersConvo.getConnection();
-		return usersConvo.findChatUserId(senderId, receiverId);
+		return usersConvo.findUserConversation(senderId, receiverId);
     }
 
 }
