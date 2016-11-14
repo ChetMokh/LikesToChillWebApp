@@ -3,11 +3,10 @@ dependencies:
     - sudo apt-get install python-dev
     - sudo pip install awsebcli
 test:
-  override:
-    - mvn verify
   post:
     - mkdir -v -p $CIRCLE_TEST_REPORTS/reports/
     - cp -v ./*/*-reports/*.xml $CIRCLE_TEST_REPORTS/reports/
+    - mvn verify
     - bash <(curl -s https://codecov.io/bash)
 deployment:
   production:
