@@ -1,12 +1,10 @@
 package CST438.softwareEngineering.LikesToChillWebApp.service;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import CST438.softwareEngineering.LikesToChillWebApp.model.Movie;
 
 public class MovieDAO {
@@ -55,6 +53,18 @@ public class MovieDAO {
 	        return true;
 
 	}
+	
+	public boolean deleteFromLikeBucket(String movieId, int userId) throws SQLException {
+
+        String selectTableSQL = "DELETE FROM LikeBucket "
+                + "WHERE MovieId = " + movieId + " AND UserId = " + userId + ")";
+
+        java.sql.Statement statement = connection.createStatement();
+        statement.executeUpdate(selectTableSQL);
+        return true;
+
+	}
+	
 
 
 //	public boolean deleteFromLikeBucket(int userId, User user) throws SQLException {

@@ -9,7 +9,6 @@ public class User {
 
 	private String fName;
 	private String lName;
-
 	private String userLocation;
 	private String userEmail;
 	private String userGender;
@@ -127,8 +126,4 @@ public class User {
 				+ ", userEmail=" + userEmail + ", userGender=" + userGender + ", userDOB=" + userDOB + ", userAbout="
 				+ userAbout + ", userSignupDate=" + userSignupDate + "]";
 	}
-	
-	
-
-	
 }
