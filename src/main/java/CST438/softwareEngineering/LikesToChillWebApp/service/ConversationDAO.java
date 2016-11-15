@@ -6,9 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import CST438.softwareEngineering.LikesToChillWebApp.model.Conversation;
-import CST438.softwareEngineering.LikesToChillWebApp.model.Movie;
+
 
 
 public class ConversationDAO {

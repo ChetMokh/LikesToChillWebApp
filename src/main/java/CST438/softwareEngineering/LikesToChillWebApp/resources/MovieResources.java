@@ -28,7 +28,7 @@ public class MovieResources {
     }
 	
     @POST
-    @Path("/addToLikeBucket")
+    @Path("/addLike")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String addNewLike(Movie userMovie) throws SQLException, ClassNotFoundException,IllegalAccessException, InstantiationException {
@@ -40,7 +40,7 @@ public class MovieResources {
     }
     	
     @DELETE
-    @Path("/deleteFromLikeBucket/{movieId}/{userId}")
+    @Path("/deleteLike/{movieId}/{userId}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String deleteLikes(@PathParam("movieId") String movieId,@PathParam("userId") int userId) throws SQLException, ClassNotFoundException, InstantiationException,IllegalAccessException {
