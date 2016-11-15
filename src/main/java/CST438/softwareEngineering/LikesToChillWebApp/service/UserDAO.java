@@ -21,7 +21,7 @@ public class UserDAO {
 		
 	}
 		
-	public void getConnection() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+	public void getConnectionToAws() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
 		
 		Class.forName("com.mysql.jdbc.Driver").newInstance();
 	
@@ -31,7 +31,7 @@ public class UserDAO {
 		
 	}
 	
-	public List<User> findAll() throws SQLException, ClassNotFoundException {
+	public List<User> findAllUserData() throws SQLException, ClassNotFoundException {
 
 		List<User> myUser = new ArrayList<User>();
 		String selectTableSQL = "SELECT * from Users";
@@ -116,7 +116,7 @@ public class UserDAO {
 //		
 //	}
 //    
-    public boolean insertUser(User user) throws SQLException {
+    public boolean addNewUser(User user) throws SQLException {
  
 
     	
@@ -132,7 +132,7 @@ public class UserDAO {
 
 	}
  
-    public boolean updateUser(int userId, User user) throws SQLException {
+    public boolean updateUserInfo(int userId, User user) throws SQLException {
 
 		String selectTableSQL = "UPDATE Users SET FirstName ='" + user.getfName() 
 				+ "', LastName = '" + user.getlName() + "', UserEmail = '" + user.getUserEmail() 
@@ -147,7 +147,7 @@ public class UserDAO {
 				
 	}
     
-    public boolean killUser(int userId) throws SQLException {
+    public boolean deleteUser(int userId) throws SQLException {
     	
     	String selectTableSQL = "DELETE FROM Users WHERE UserId = "+ userId +"";
     	

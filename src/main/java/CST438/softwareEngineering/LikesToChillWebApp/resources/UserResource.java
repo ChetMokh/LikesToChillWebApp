@@ -27,15 +27,15 @@ public class UserResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
     public List<User> getAllUsers() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-        users.getConnection();
-		return users.findAll();
+        users.getConnectionToAws();
+		return users.findAllUserData();
     }
 	
 	@GET
 	@Path("/{userId}")
 	@Produces(MediaType.APPLICATION_JSON)
     public List<User> getUserById(@PathParam("userId") int userId ) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-        users.getConnection();
+        users.getConnectionToAws();
 		return users.findById(userId);
     }
 	
@@ -62,8 +62,8 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
 	public String addNewUser(User newUser) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 		
-		users.getConnection();
-		users.insertUser(newUser);
+		users.getConnectionToAws();
+		users.addNewUser(newUser);
 		return "User Added";
 		
 	}
@@ -74,8 +74,8 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
 	public User updateUser(@PathParam("userId") int userId, User updateUser) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 		
-		users.getConnection();
-		users.updateUser(userId, updateUser);
+		users.getConnectionToAws();
+		users.updateUserInfo(userId, updateUser);
 		return updateUser;
 		
 	}
