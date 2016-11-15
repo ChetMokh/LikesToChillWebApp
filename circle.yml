@@ -12,6 +12,7 @@ deployment:
   production:
     branch: master
     commands:
+      - eb init Likes2ChillWebApp
       - eb deploy --staged
 notify:
   webhooks:
