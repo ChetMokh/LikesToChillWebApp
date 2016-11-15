@@ -12,11 +12,7 @@ deployment:
   production:
     branch: master
     commands:
-<<<<<<< HEAD
       - eb init Likes2ChillWebApp
-=======
-      - bash ./setup-eb.sh
->>>>>>> origin/master
       - eb deploy --staged
 notify:
   webhooks:
