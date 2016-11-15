@@ -12,6 +12,7 @@ deployment:
   production:
     branch: master
     commands:
+      - eb init --profile eb-cli
       - eb deploy --profile eb-cli
 notify:
   webhooks:
