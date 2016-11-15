@@ -12,8 +12,7 @@ deployment:
   production:
     branch: master
     commands:
-      - eb init --profile eb-cli
-      - eb deploy --profile eb-cli
+      - eb deploy --profile arash
 notify:
   webhooks:
     - url: http://csumbse.net/harbormaster/hook/circleci/
