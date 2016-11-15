@@ -12,7 +12,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
-
+import static org.junit.Assert.*;
 import bsh.ParseException;
 
 public class UserIT{
@@ -46,17 +46,18 @@ public class UserIT{
                     String lName = (String) result.get("lName");
                     System.out.println("l NAME : " + lName);
 
+                    assertEquals(fName, expectedResult[i]);
                     
-                    if(fName.equalsIgnoreCase(expectedResult[i]))
-    					{
-    						System.out.println("Name is as Expected");
-    					}
-    					else
-    					{
-    						System.out.println("Name is not as Expected");
-    					}
+//                    if(fName.equalsIgnoreCase(expectedResult[i]))
+//    					{
+//    						System.out.println("Name is as Expected");
+//    					}
+//    					else
+//    					{
+//    						System.out.println("Name is not as Expected");
+//    					}
                     System.out.println("\n");
-                    i++;
+//                    i++;
                     
                 }
             }
@@ -98,6 +99,7 @@ public class UserIT{
                     String lName = (String) result.get("lName");
                     System.out.println("l NAME : " + lName);
 
+//                    assertEquals(fName, expectedResult[i]));
                     
                     if(fName.equalsIgnoreCase(expectedResult[i]))
     					{
