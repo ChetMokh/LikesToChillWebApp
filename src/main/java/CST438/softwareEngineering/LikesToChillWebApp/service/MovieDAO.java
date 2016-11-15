@@ -26,7 +26,7 @@ public class MovieDAO {
 	}
 	
 	
-	public List<Movie> findMoviesByUserId(int userId) throws SQLException {
+	public List<Movie> findAllUserLikes(int userId) throws SQLException {
     	
 		List<Movie> userMovies = new ArrayList<Movie>();
 		String selectTableSQL = "SELECT * from LikeBucket WHERE UserId = "+ userId +"";

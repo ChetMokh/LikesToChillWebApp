@@ -47,18 +47,7 @@ public class UserIT{
                     System.out.println("l NAME : " + lName);
 
                     assertEquals(fName, expectedResult[i]);
-                    
-//                    if(fName.equalsIgnoreCase(expectedResult[i]))
-//    					{
-//    						System.out.println("Name is as Expected");
-//    					}
-//    					else
-//    					{
-//    						System.out.println("Name is not as Expected");
-//    					}
-                    System.out.println("\n");
-//                    i++;
-                    
+                    i++;
                 }
             }
             in.close();
@@ -88,7 +77,7 @@ public class UserIT{
                 String[] expectedResult = {"Arash"};
                 
                 // Loop through each item
-                int i = 0;
+
                 for (Object obj : array) {
 
                     JSONObject result = (JSONObject) obj;
@@ -98,20 +87,8 @@ public class UserIT{
                     
                     String lName = (String) result.get("lName");
                     System.out.println("l NAME : " + lName);
-
-//                    assertEquals(fName, expectedResult[i]));
                     
-                    if(fName.equalsIgnoreCase(expectedResult[i]))
-    					{
-    						System.out.println("Name is as Expected");
-    					}
-    					else
-    					{
-    						System.out.println("Name is not as Expected");
-    					}
-                    System.out.println("\n");
-                    i++;
-                    
+                    assertEquals(fName, expectedResult[0]);
                 }
             }
             in.close();
