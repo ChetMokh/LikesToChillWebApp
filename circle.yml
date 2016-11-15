@@ -12,8 +12,19 @@ deployment:
   production:
     branch: master
     commands:
+<<<<<<< HEAD
       - eb init Likes2ChillWebApp
+=======
+      - bash ./setup-eb.sh
+>>>>>>> origin/master
       - eb deploy --staged
 notify:
   webhooks:
     - url: http://csumbse.net/harbormaster/hook/circleci/
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - bash ./setup-eb.sh
+      - eb deploy
