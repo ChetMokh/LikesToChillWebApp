@@ -18,42 +18,32 @@ public class MovieResources {
 	
 	MovieDAO userMovies = new MovieDAO();
 	
-	
-//	@GET
-//	@Produces(MediaType.APPLICATION_JSON)
-//    public List<User> getAllUsers() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-//        users.getConnection();
-//		return users.findAll();
-//  }
-	
 	@GET
 	@Path("/{userId}")
 	@Produces(MediaType.APPLICATION_JSON)
-    public List<Movie> getUserById(@PathParam("userId") int userId ) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+    public List<Movie> getAllUserLikes(@PathParam("userId") int userId ) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
         
 		userMovies.getConnection();
-		return userMovies.findMoviesByUserId(userId);
+		return userMovies.findAllUserLikes(userId);
     }
 	
     @POST
     @Path("/addToLikeBucket")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String addNewMovie(Movie userMovie) throws SQLException, ClassNotFoundException, InstantiationException,IllegalAccessException {
+    public String addNewLike(Movie userMovie) throws SQLException, ClassNotFoundException,IllegalAccessException, InstantiationException {
 
         userMovies.getConnection();
         userMovies.addToLikeBucket(userMovie);
         return "**Like Added**";
 
     }
-    
-
     	
     @DELETE
     @Path("/deleteFromLikeBucket/{movieId}/{userId}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String deleteMovieLike(@PathParam("movieId") String movieId,@PathParam("userId") int userId) throws SQLException, ClassNotFoundException, InstantiationException,IllegalAccessException {
+    public String deleteLikes(@PathParam("movieId") String movieId,@PathParam("userId") int userId) throws SQLException, ClassNotFoundException, InstantiationException,IllegalAccessException {
 
         userMovies.getConnection();
         userMovies.deleteFromLikeBucket(movieId, userId);
