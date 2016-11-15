@@ -52,10 +52,6 @@ public class User {
 		return userId;
 	}
 	
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-	
 	public String getfName() {
 		return fName;
 	}
@@ -100,10 +96,6 @@ public class User {
 		return userDOB;
 	}
 
-	public void setUserDOB(String userDOB) {
-		this.userDOB = userDOB;
-	}
-
 	public String getUserAbout() {
 		return userAbout;
 	}
@@ -116,9 +108,6 @@ public class User {
 		return userSignupDate;
 	}
 
-	public void setUserSignupDate(String userSignupDate) {
-		this.userSignupDate = userSignupDate;
-	}
 
 	@Override
 	public String toString() {

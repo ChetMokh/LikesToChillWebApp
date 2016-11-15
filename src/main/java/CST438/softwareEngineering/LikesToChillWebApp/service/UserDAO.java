@@ -76,46 +76,7 @@ public class UserDAO {
     	
 	}
 	
-//    public List<User> findById(int userId) throws SQLException {
-//    	
-//    	List<User> myUser = new ArrayList<User>();
-//		String selectTableSQL = "SELECT * from users where userid = "+ userId +" ";
-//		java.sql.Statement statement = connection.createStatement();
-//		ResultSet rs = statement.executeQuery(selectTableSQL);
-//		
-//		while (rs.next()) {
-//			userId = rs.getInt("userid");
-//			String userName = rs.getString("username");
-//			String phoneNumber = rs.getString("phonenumber");
-//			String userPic = rs.getString("userpicture");
-//			String realName = rs.getString("realname");
-//			String modTime = rs.getString("modtime");
-//			myUser.add(new User(userId, userName, phoneNumber, realName));
-//		}
-//		return myUser;
-//    	
-//	}
-//    
-//    public List<User> findByName(String userName) throws SQLException {
-//    	
-//    	List<User> myUser = new ArrayList<User>();
-//		String selectTableSQL = "SELECT * from users where username = '"+ userName +"' ";
-//		java.sql.Statement statement = connection.createStatement();
-//		ResultSet rs = statement.executeQuery(selectTableSQL);
-//		
-//		while (rs.next()) {
-//			int userId = rs.getInt("userid");
-//			userName = rs.getString("username");
-//			String phoneNumber = rs.getString("phonenumber");
-//			String userPic = rs.getString("userpicture");
-//			String realName = rs.getString("realname");
-//			String modTime = rs.getString("modtime");
-//			myUser.add(new User(userId, userName, phoneNumber, realName));
-//		}
-//		return myUser;
-//		
-//	}
-//    
+
     public boolean addNewUser(User user) throws SQLException {
  
 
