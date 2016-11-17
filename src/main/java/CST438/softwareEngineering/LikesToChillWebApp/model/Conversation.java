@@ -13,6 +13,8 @@ public class Conversation {
 	private String messageBody;
 	private String timestamp;
 	
+	
+	
 	public Conversation() {
 		
 	}
