@@ -52,6 +52,10 @@ public class User {
 		return userId;
 	}
 	
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	
 	public String getfName() {
 		return fName;
 	}
@@ -94,6 +98,10 @@ public class User {
 
 	public String getUserDOB() {
 		return userDOB;
+	}
+	
+	public void setUserDOB(String userDOB) {
+		this.userDOB = userDOB;
 	}
 
 	public String getUserAbout() {

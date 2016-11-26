@@ -77,6 +77,8 @@ public class UserDAO {
     public boolean addNewUser(User user) throws SQLException {
  
 
+//    	INSERT INTO Users VALUES ("5", "John", "Smith", "something@email.com", "M",
+//    			"12345", "About User", '2016-10-20', CURRENT_DATE);
     	
 		String selectTableSQL = "INSERT INTO Users "
 				+ "VALUES (" + user.getUserId() + ", '" + user.getfName() + "', '" 
