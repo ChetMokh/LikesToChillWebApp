@@ -5,37 +5,37 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Movie {
 
-	private String movieId;
-	private int userId;
+	private String movieTitle;
+	private String userId;
 
 	public Movie() {	
 	}
 	
-	public Movie(String movieId, int userId) {
+	public Movie(String movieTitle, String userId) {
 		super();
-		this.movieId = movieId;
+		this.movieTitle = movieTitle;
 		this.userId = userId;
 	}
 
-	public String getMovieId() {
-		return movieId;
+	public String getMovieTitle() {
+		return movieTitle;
 	}
 
-	public void setMovieId(String movieId) {
-		this.movieId = movieId;
+	public void setMovieTitle(String movieTitle) {
+		this.movieTitle = movieTitle;
 	}
 	
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
 	@Override
 	public String toString() {
-		return "Movie [movieId=" + movieId + ", userId=" + userId + "]";
+		return "Movie [movieTitle=" + movieTitle + ", userId=" + userId + "]";
 	}
 	
 	

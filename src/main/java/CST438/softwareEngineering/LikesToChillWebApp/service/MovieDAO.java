@@ -26,18 +26,18 @@ public class MovieDAO {
 	}
 	
 	
-	public List<Movie> findAllUserLikes(int userId) throws SQLException {
+	public List<Movie> findAllUserLikes(String userId) throws SQLException {
     	
 		List<Movie> userMovies = new ArrayList<Movie>();
-		String selectTableSQL = "SELECT * from LikeBucket WHERE UserId = "+ userId +"";
+		String selectTableSQL = "SELECT * from LikeBucket WHERE UserId = '"+ userId +"'";
 		java.sql.Statement statement = connection.createStatement();
 		ResultSet rs = statement.executeQuery(selectTableSQL);
 	
 		while (rs.next()) {
 			
-			String movieId = rs.getString("MovieId");
+			String movieTitle = rs.getString("MovieTitle");
 
-			userMovies.add(new Movie(movieId, userId));
+			userMovies.add(new Movie(movieTitle, userId));
 		}
 		return userMovies;
     	
@@ -46,7 +46,7 @@ public class MovieDAO {
 	public boolean addToLikeBucket(Movie movie) throws SQLException {
 
 	        String selectTableSQL = "INSERT INTO LikeBucket "
-	                + "VALUES (" + movie.getUserId() + ", '" + movie.getMovieId() + "')";
+	                + "VALUES ('" + movie.getUserId() + "', '" + movie.getMovieTitle() + "')";
 
 	        java.sql.Statement statement = connection.createStatement();
 	        statement.executeUpdate(selectTableSQL);
@@ -54,10 +54,10 @@ public class MovieDAO {
 
 	}
 	
-	public boolean deleteFromLikeBucket(String movieId, int userId) throws SQLException {
+	public boolean deleteFromLikeBucket(String movieTitle, String userId) throws SQLException {
 
         String selectTableSQL = "DELETE FROM LikeBucket "
-                + "WHERE MovieId = " + movieId + " AND UserId = " + userId + ")";
+                + "WHERE MovieTitle = " + movieTitle + " AND UserId = '" + userId + "')";
 
         java.sql.Statement statement = connection.createStatement();
         statement.executeUpdate(selectTableSQL);

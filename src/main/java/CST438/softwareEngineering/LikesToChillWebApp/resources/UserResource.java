@@ -30,7 +30,7 @@ public class UserResource {
 	@GET
 	@Path("/{userId}")
 	@Produces(MediaType.APPLICATION_JSON)
-    public List<User> getUserById(@PathParam("userId") int userId ) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+    public List<User> getUserById(@PathParam("userId") String userId ) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
         users.getConnectionToAws();
 		return users.findById(userId);
     }
@@ -51,7 +51,7 @@ public class UserResource {
 	@Path("/updateUser/{userId}")
 	@Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-	public User updateUser(@PathParam("userId") int userId, User updateUser) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+	public User updateUser(@PathParam("userId") String userId, User updateUser) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 		
 		users.getConnectionToAws();
 		users.updateUserInfo(userId, updateUser);

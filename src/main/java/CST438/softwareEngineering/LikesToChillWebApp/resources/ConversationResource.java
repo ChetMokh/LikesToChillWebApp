@@ -21,7 +21,7 @@ public class ConversationResource {
 	@GET
 	@Path("{senderId}/{receiverId}")
 	@Produces(MediaType.APPLICATION_JSON)
-    public List<Conversation> getChat(@PathParam("senderId") int senderId, @PathParam("receiverId") int receiverId ) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+    public List<Conversation> getChat(@PathParam("senderId") String senderId, @PathParam("receiverId") String receiverId ) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
         usersConversations.getConnection();
 		return usersConversations.findUserConversation(senderId, receiverId);
     }

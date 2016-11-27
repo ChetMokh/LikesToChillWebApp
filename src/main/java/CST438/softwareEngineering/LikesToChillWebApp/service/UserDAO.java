@@ -36,7 +36,7 @@ public class UserDAO {
 		ResultSet rs = statement.executeQuery(selectTableSQL);
 
 		while (rs.next()) {
-			int userId = rs.getInt("UserId");
+			String userId = rs.getString("UserId");
 			String firstName = rs.getString("FirstName");
 			String lastName = rs.getString("LastName");
 			String userEmail = rs.getString("UserEmail");
@@ -50,10 +50,10 @@ public class UserDAO {
 		return myUser;
 	}
 	
-	public List<User> findById(int userId) throws SQLException {
+	public List<User> findById(String userId) throws SQLException {
     	
 		List<User> myUser = new ArrayList<User>();
-		String selectTableSQL = "SELECT * from Users WHERE UserId = "+ userId +"";
+		String selectTableSQL = "SELECT * from Users WHERE UserId = '"+ userId +"'";
 		java.sql.Statement statement = connection.createStatement();
 		ResultSet rs = statement.executeQuery(selectTableSQL);
 	
@@ -81,7 +81,7 @@ public class UserDAO {
 //    			"12345", "About User", '2016-10-20', CURRENT_DATE);
     	
 		String selectTableSQL = "INSERT INTO Users "
-				+ "VALUES (" + user.getUserId() + ", '" + user.getfName() + "', '" 
+				+ "VALUES ('" + user.getUserId() + "', '" + user.getfName() + "', '" 
 				+ user.getlName() + "', '" + user.getUserEmail() 
 				+ "', '"+ user.getUserGender() + "', " + user.getUserLocation() 
 				+ ", '" + user.getUserAbout() + "', '"+ user.getUserDOB() +"',CURRENT_DATE )";
@@ -92,14 +92,14 @@ public class UserDAO {
 
 	}
  
-    public boolean updateUserInfo(int userId, User user) throws SQLException {
+    public boolean updateUserInfo(String userId, User user) throws SQLException {
 
 		String selectTableSQL = "UPDATE Users SET FirstName ='" + user.getfName() 
 				+ "', LastName = '" + user.getlName() + "', UserEmail = '" + user.getUserEmail() 
 				+ "', UserGender = '"+ user.getUserGender() + "', "
 				+ "UserZipcode = "+ user.getUserLocation() + ", UserAbout = '"+ user.getUserAbout() + "', "
 				+ "UserDOB = '"+ user.getUserDOB() +"' " 
-				+ "WHERE UserId = "+ userId +"";
+				+ "WHERE UserId = '"+ userId +"'";
 	
 		java.sql.Statement statement = connection.createStatement();
 		statement.executeUpdate(selectTableSQL);
@@ -107,7 +107,7 @@ public class UserDAO {
 				
 	}
     
-    public boolean deleteUser(int userId) throws SQLException {
+    public boolean deleteUser(String userId) throws SQLException {
     	
     	String selectTableSQL = "DELETE FROM Users WHERE UserId = "+ userId +"";
     	

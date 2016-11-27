@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class User {
 
-	private int userId;
+	private String userId;
 
 	private String fName;
 	private String lName;
@@ -34,7 +34,7 @@ public class User {
 		this.userAbout = userAbout;
 	}
 	
-	public User(int userId, String fName, String lName, String userLocation, String userEmail, String userGender,
+	public User(String userId, String fName, String lName, String userLocation, String userEmail, String userGender,
 			String userDOB, String userAbout, String userSignupDate) {
 		super();
 		this.userId = userId;
@@ -48,11 +48,11 @@ public class User {
 		this.userSignupDate = userSignupDate;
 	}
 	
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 	
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	

@@ -7,8 +7,8 @@ public class Conversation {
 
 	private int conversationId;
 
-	private int senderId;
-	private int receiverId;
+	private String senderId;
+	private String receiverId;
 	
 	private String messageBody;
 	private String timestamp;
@@ -19,7 +19,7 @@ public class Conversation {
 		
 	}
 	
-	public Conversation(int conversationId, int senderId, int receiverId, String messageBody, String timestamp) {
+	public Conversation(int conversationId, String senderId, String receiverId, String messageBody, String timestamp) {
 		super();
 		this.conversationId = conversationId;
 		this.senderId = senderId;
@@ -36,19 +36,19 @@ public class Conversation {
 		this.conversationId = conversationId;
 	}
 	
-	public int getSenderId() {
+	public String getSenderId() {
 		return senderId;
 	}
 	
-	public void setSenderId(int senderId) {
+	public void setSenderId(String senderId) {
 		this.senderId = senderId;
 	}
 	
-	public int getReceiverId() {
+	public String getReceiverId() {
 		return receiverId;
 	}
 	
-	public void setReceiverId(int receiverId) {
+	public void setReceiverId(String receiverId) {
 		this.receiverId = receiverId;
 	}
 	

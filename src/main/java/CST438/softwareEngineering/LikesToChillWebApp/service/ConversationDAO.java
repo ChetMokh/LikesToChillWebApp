@@ -28,11 +28,11 @@ private Connection connection;
 		
 	}
 	
-	public List<Conversation> findUserConversation(int senderId, int receiverId) throws SQLException {
+	public List<Conversation> findUserConversation(String senderId, String receiverId) throws SQLException {
     	
 		List<Conversation> userConvo = new ArrayList<Conversation>();
-		String selectTableSQL = "SELECT * from Conversations WHERE (SenderId = "+ senderId +" AND ReceiverId =" + receiverId + ") OR " +
-				"(SenderId = "+ receiverId +" AND ReceiverId =" + senderId + ")";
+		String selectTableSQL = "SELECT * from Conversations WHERE (SenderId = '"+ senderId +"' AND ReceiverId ='" + receiverId + "') OR " +
+				"(SenderId = '"+ receiverId +"' AND ReceiverId ='" + senderId + "')";
 		java.sql.Statement statement = connection.createStatement();
 		ResultSet rs = statement.executeQuery(selectTableSQL);
 	
@@ -41,8 +41,8 @@ private Connection connection;
 			int convoId = rs.getShort("ConversationId");
 			String message = rs.getString("Message");
 			String convoTime = rs.getString("TimeStamp");
-			int senderUId = rs.getShort("SenderId");
-			int receiverUId = rs.getShort("ReceiverId");
+			String senderUId = rs.getString("SenderId");
+			String receiverUId = rs.getString("ReceiverId");
 			userConvo.add(new Conversation(convoId, senderUId, receiverUId, message, convoTime));
 		}
 		return userConvo;
@@ -52,7 +52,7 @@ private Connection connection;
 	public boolean addConversation(Conversation userConvo) throws SQLException {
 		
         String selectTableSQL = "INSERT INTO Conversations (ReceiverId, SenderId, Message, TimeStamp) "
-        		+ "VALUES (" + userConvo.getReceiverId() + ", " + userConvo.getSenderId() + "'" + userConvo.getMessageBody() + "' CURRENT_TIMESTAMP)";
+        		+ "VALUES ('" + userConvo.getReceiverId() + "', '" + userConvo.getSenderId() + "' , '" + userConvo.getMessageBody() + "' CURRENT_TIMESTAMP)";
 
         java.sql.Statement statement = connection.createStatement();
         statement.executeUpdate(selectTableSQL);
