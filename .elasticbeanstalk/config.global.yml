@@ -1,6 +1,8 @@
 branch-defaults:
   master:
     environment: LowCost-env
+deploy:
+ artifact: target/LikesToChillWebApp.war
 environment-defaults:
   LowCost-env:
     branch: null
