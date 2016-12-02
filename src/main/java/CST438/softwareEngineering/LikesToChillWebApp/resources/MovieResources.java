@@ -43,11 +43,23 @@ public class MovieResources {
     @Path("/deleteLike/{userId}/{movieTitle}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String deleteLikes(@PathParam("movieTitle") String movieName,@PathParam("userId") String userId) throws SQLException, ClassNotFoundException, InstantiationException,IllegalAccessException {
+    public String deleteLike(@PathParam("movieTitle") String movieName,@PathParam("userId") String userId) throws SQLException, ClassNotFoundException, InstantiationException,IllegalAccessException {
 
         userMovies.getConnection();
         userMovies.deleteFromLikeBucket(movieName, userId);
         return "**Like Deleted**";
+
+    }
+    
+    @DELETE
+    @Path("/deleteAllLikes/{userId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String deleteAllLikes(@PathParam("userId") String userId) throws SQLException, ClassNotFoundException, InstantiationException,IllegalAccessException {
+
+        userMovies.getConnection();
+        userMovies.deleteAllLikeBucket(userId);
+        return "**All User Likes Deleted**";
 
     }
 	

@@ -109,7 +109,7 @@ public class UserDAO {
     
     public boolean deleteUser(String userId) throws SQLException {
     	
-    	String selectTableSQL = "DELETE FROM Users WHERE UserId = "+ userId +"";
+    	String selectTableSQL = "DELETE FROM Users WHERE UserId = '"+ userId +"'";
     	
     	java.sql.Statement statement = connection.createStatement();
 		statement.executeUpdate(selectTableSQL);

@@ -57,8 +57,17 @@ public class MovieDAO {
 	public boolean deleteFromLikeBucket(String movieTitle, String userId) throws SQLException {
 
         String selectTableSQL = "DELETE FROM LikeBucket "
-                + "WHERE MovieTitle = '" + movieTitle + "' AND UserId = '" + userId + "')";
+                + "WHERE MovieTitle = '" + movieTitle + "' AND UserId = '" + userId + "'";
 
+        java.sql.Statement statement = connection.createStatement();
+        statement.executeUpdate(selectTableSQL);
+        return true;
+
+	}
+	
+	public boolean deleteAllLikeBucket(String userId) throws SQLException {
+
+        String selectTableSQL = "DELETE FROM LikeBucket WHERE UserId = '"+ userId +"'";
         java.sql.Statement statement = connection.createStatement();
         statement.executeUpdate(selectTableSQL);
         return true;

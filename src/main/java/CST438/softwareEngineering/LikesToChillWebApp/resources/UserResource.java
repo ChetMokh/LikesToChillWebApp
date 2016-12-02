@@ -3,6 +3,7 @@ package CST438.softwareEngineering.LikesToChillWebApp.resources;
 import java.sql.SQLException;
 import java.util.List;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -58,5 +59,17 @@ public class UserResource {
 		return updateUser;
 		
 	}
+	
+	@DELETE
+    @Path("/deleteUser/{userId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String deleteLikes(@PathParam("userId") String userId) throws SQLException, ClassNotFoundException, InstantiationException,IllegalAccessException {
+
+        users.getConnectionToAws();
+        users.deleteUser(userId);
+        return "**User Deleted**";
+
+    }
 	
 }
