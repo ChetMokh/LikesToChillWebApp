@@ -8,8 +8,11 @@ dependencies:
     - sudo pip install awsebcli
 test:
   post:
-    - mkdir -v -p $CIRCLE_TEST_REPORTS/reports/
-    - cp -v ./*/*-reports/*.xml $CIRCLE_TEST_REPORTS/reports/
+  
+    - mkdir -v -p $CIRCLE_TEST_REPORTS/reports-surefire/
+    - mkdir -v -p $CIRCLE_TEST_REPORTS/reports-failsafe/
+    - cp -v ./*/surefire-reports/*.xml $CIRCLE_TEST_REPORTS/reports-surefire/
+    - cp -v ./*/failsafe-reports/*.xml $CIRCLE_TEST_REPORTS/reports-failsafe/
     - mvn verify
     - bash <(curl -s https://codecov.io/bash)
 deployment:
