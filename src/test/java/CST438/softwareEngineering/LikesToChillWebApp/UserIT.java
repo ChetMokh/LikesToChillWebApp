@@ -1,3 +1,4 @@
+package CST438.softwareEngineering.LikesToChillWebApp;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -7,8 +8,8 @@ import java.net.URLConnection;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.testng.annotations.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class UserIT{
 	

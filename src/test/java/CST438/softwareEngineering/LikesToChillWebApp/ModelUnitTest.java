@@ -1,3 +1,4 @@
+package CST438.softwareEngineering.LikesToChillWebApp;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
