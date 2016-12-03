@@ -13,6 +13,7 @@ test:
     - mkdir -v -p $CIRCLE_TEST_REPORTS/reports-failsafe/
     - cp -v ./*/surefire-reports/*.xml $CIRCLE_TEST_REPORTS/reports-surefire/
     - cp -v ./*/failsafe-reports/*.xml $CIRCLE_TEST_REPORTS/reports-failsafe/
+    - mvn test
     - mvn verify
     - bash <(curl -s https://codecov.io/bash)
 deployment:
