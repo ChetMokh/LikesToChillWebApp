@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 
 import java.sql.SQLException;
 
-import javax.validation.constraints.AssertTrue;
-
 import org.junit.Before;
 import org.junit.Test;
 

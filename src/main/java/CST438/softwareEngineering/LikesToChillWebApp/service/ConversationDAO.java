@@ -52,7 +52,7 @@ private Connection connection;
 	public boolean addConversation(Conversation userConvo) throws SQLException {
 		
         String selectTableSQL = "INSERT INTO Conversations (ReceiverId, SenderId, Message, TimeStamp) "
-        		+ "VALUES ('" + userConvo.getReceiverId() + "', '" + userConvo.getSenderId() + "' , '" + userConvo.getMessageBody() + "' CURRENT_TIMESTAMP)";
+        		+ "VALUES ('" + userConvo.getReceiverId() + "', '" + userConvo.getSenderId() + "' , '" + userConvo.getMessageBody() + "' ,CURRENT_DATE )";
 
         java.sql.Statement statement = connection.createStatement();
         statement.executeUpdate(selectTableSQL);

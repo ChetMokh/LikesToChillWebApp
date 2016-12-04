@@ -27,6 +27,16 @@ public class Conversation {
 		this.messageBody = messageBody;
 		this.timestamp = timestamp;
 	}
+	
+	
+
+	public Conversation(String senderId, String receiverId, String messageBody) {
+		super();
+		this.senderId = senderId;
+		this.receiverId = receiverId;
+		this.messageBody = messageBody;
+		
+	}
 
 	public int getConversationId() {
 		return conversationId;

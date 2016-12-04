@@ -9,7 +9,28 @@ import CST438.softwareEngineering.LikesToChillWebApp.model.Movie;
 
 public class ModelUnitTest {
 	
-	
+	@Test
+	public void testEmptyAndSetters() {
+		
+		User myUser = new User();
+		int rnd = 1000 + (int)(Math.random() * 99999999);
+		myUser.setUserId(String.valueOf(rnd));
+		myUser.setfName("john");
+		myUser.setlName("doe");
+		myUser.setUserLocation("43939");
+		myUser.setUserGender("M");
+		myUser.setUserEmail("dd@ww.com");
+		myUser.setUserDOB("10-10-2000");
+		myUser.setUserAbout("i am cool");
+		
+		String expected = "User [userId=" + myUser.getUserId() + ", fName=" + myUser.getfName() + ", lName=" + myUser.getlName() + ", userLocation=" + myUser.getUserLocation()
+				+ ", userEmail=" + myUser.getUserEmail() + ", userGender=" + myUser.getUserGender() + ", userDOB=" + myUser.getUserDOB() + ", userAbout="
+				+ myUser.getUserAbout() + ", userSignupDate=" + myUser.getUserSignupDate() + "]";
+		
+		assertEquals(expected, myUser.toString());
+		
+			
+	}
 
 	@Test
 	public void testUser() {
@@ -53,8 +74,7 @@ public class ModelUnitTest {
 			
 			assertEquals("I am here to chill", myUser.getUserAbout());
 			
-		}
-	
+	}
 	
 	@Test
 	public void testConversation(){
@@ -73,6 +93,26 @@ public class ModelUnitTest {
 		
 		
 	}
+	
+	@Test
+	public void testConvEmptyAndSetters() {
+		
+		Conversation myConv = new Conversation();
+		
+		myConv.setConversationId(12);
+		myConv.setSenderId("3424233");
+		myConv.setReceiverId("4454566");
+		myConv.setMessageBody("adhjasldhaskhd");
+		myConv.setTimestamp("435577");
+		
+		String expected = "Conversations [conversationId=" + myConv.getConversationId() + ", senderId=" + myConv.getSenderId() + ", receiverId="
+				+ myConv.getReceiverId() + ", messageBody=" + myConv.getMessageBody() + ", timestamp=" + myConv.getTimestamp() + "]";
+		
+		
+		assertEquals(expected, myConv.toString());
+		
+	}
+	
 	
 	@Test
 	public void testMovie(){
