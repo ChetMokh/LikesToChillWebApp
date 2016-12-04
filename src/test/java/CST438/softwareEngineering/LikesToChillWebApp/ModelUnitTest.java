@@ -33,6 +33,30 @@ public class ModelUnitTest {
 	}
 	
 	@Test
+	public void testUser2() {
+		
+		User myUser = new User("123","Arash", "Aria", "95148", "a@b.com", "M", "10-10-2000", "I am here to chill", "10-10-1224");
+			
+			assertEquals("123", myUser.getUserId());
+		
+			assertEquals("Arash", myUser.getfName());
+			
+			assertEquals("Aria", myUser.getlName());
+			
+			assertEquals("95148", myUser.getUserLocation());
+			
+			assertEquals("a@b.com", myUser.getUserEmail());
+			
+			assertEquals("M", myUser.getUserGender());
+			
+			assertEquals("10-10-2000", myUser.getUserDOB());
+			
+			assertEquals("I am here to chill", myUser.getUserAbout());
+			
+		}
+	
+	
+	@Test
 	public void testConversation(){
 		
 		Conversation myConv =  new Conversation(1, "3333", "9999", "Hi there.", "21:50");
