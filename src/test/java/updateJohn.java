@@ -11,7 +11,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import CST438.softwareEngineering.LikesToChillWebApp.model.User;
+import softwareEngineering.LikesToChillWebApp.models.User;
 
 public class updateJohn {
 	private Connection connection;
