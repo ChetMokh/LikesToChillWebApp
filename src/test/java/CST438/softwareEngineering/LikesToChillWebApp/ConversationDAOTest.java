@@ -36,7 +36,15 @@ public class ConversationDAOTest {
 	}
 	
 	@Test
-	public void addChat() throws SQLException{
+	public void testFindChat() throws SQLException {
+		
+		conv.addConversation(new Conversation(String.valueOf(rnd1), String.valueOf(rnd2), "Hi there."));
+		assertFalse(conv.findUserConversation(String.valueOf(rnd1), String.valueOf(rnd2)).isEmpty());
+		
+	}
+	
+	@Test
+	public void testAddChat() throws SQLException{
 		
 		assertTrue(conv.addConversation(new Conversation(String.valueOf(rnd1), String.valueOf(rnd2), "Hi there.")));
 		

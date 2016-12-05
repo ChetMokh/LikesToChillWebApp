@@ -124,6 +124,20 @@ public class ModelUnitTest {
 		assertEquals("54", myMovie.getUserId());
 		
 	}
+	
+	@Test
+	public void testMovieEmptyAndSetters(){
+		
+		Movie myMovie = new Movie();
+		
+		myMovie.setMovieTitle("lhsdalhasdl");
+		myMovie.setUserId("fdffd3");
+		
+		String expected = "Movie [movieTitle=" + myMovie.getMovieTitle() + ", userId=" + myMovie.getUserId() + "]";
+		
+		assertEquals(expected, myMovie.toString());
+		
+	}
 
 }
 
