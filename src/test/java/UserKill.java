@@ -11,7 +11,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import CST438.softwareEngineering.LikesToChillWebApp.model.User;
+import softwareEngineering.LikesToChillWebApp.models.User;
 
 //Brian Test
 public class UserKill {
