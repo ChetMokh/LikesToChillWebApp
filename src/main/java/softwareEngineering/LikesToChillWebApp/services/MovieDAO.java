@@ -74,43 +74,6 @@ public class MovieDAO {
         return true;
 
 	}
-	
-
-
-//	public boolean deleteFromLikeBucket(int userId, User user) throws SQLException {
-//		
-//	        String selectTableSQL = "DELETE FROM LikeBucket WHERE UserId ="+ userId +"";
-//
-//	        java.sql.Statement statement = connection.createStatement();
-//	        statement.executeUpdate(selectTableSQL);
-//	        return true;
-//	    }
-
-	
-	
-//    public boolean insertUser(User user) throws SQLException {
-// 
-//
-//    	
-//		String selectTableSQL = "INSERT INTO Users "
-//				+ "VALUES (" + user.getUserId() + ", '" + user.getfName() + "', '" 
-//				+ user.getlName() + "', '" + user.getUserEmail() 
-//				+ "', '"+ user.getUserGender() + "', " + user.getUserLocation() 
-//				+ ", '" + user.getUserAbout() + "', '"+ user.getUserDOB() +"',CURRENT_DATE )";
-//    	
-//		java.sql.Statement statement = connection.createStatement();
-//		statement.executeUpdate(selectTableSQL);
-//		return true;
-//
-//	}
-//    
-//    public boolean killUser(int userId, User user) throws SQLException {
-//    	String selectTableSQL = "DELETE FROM Users WHERE UserId = "+ userId +"";
-//    	
-//    	java.sql.Statement statement = connection.createStatement();
-//		statement.executeUpdate(selectTableSQL);
-//		return true;
-//    }
 
 
 }
