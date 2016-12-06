@@ -14,7 +14,7 @@ import softwareEngineering.LikesToChillWebApp.models.Movie;
 import softwareEngineering.LikesToChillWebApp.services.MovieDAO;
 
 @Path ("movies")
-public class MovieResources {
+public class MovieResource {
 
 	
 	MovieDAO userMovies = new MovieDAO();
@@ -49,18 +49,6 @@ public class MovieResources {
         userMovies.getConnection();
         userMovies.deleteFromLikeBucket(movieName, userId);
         return "**Like Deleted**";
-
-    }
-    
-    @DELETE
-    @Path("/deleteAllLikes/{userId}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public String deleteAllLikes(@PathParam("userId") String userId) throws SQLException, ClassNotFoundException, InstantiationException,IllegalAccessException {
-
-        userMovies.getConnection();
-        userMovies.deleteAllLikeBucket(userId);
-        return "**All User Likes Deleted**";
 
     }
 	
